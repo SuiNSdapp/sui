@@ -6,6 +6,9 @@ use crate::authority::authority_per_epoch_store::{
     AuthorityPerEpochStore, ExecutionIndicesWithHash,
 };
 use arc_swap::ArcSwap;
+use either::Either;
+use itertools::Itertools;
+use narwhal_executor::ExecutionIndices;
 use once_cell::sync::OnceCell;
 use rocksdb::Options;
 use serde::{Deserialize, Serialize};
@@ -15,19 +18,6 @@ use std::iter;
 use std::path::Path;
 use std::sync::Arc;
 use std::{fmt::Debug, path::PathBuf};
-
-use arc_swap::ArcSwap;
-use itertools::{Either, Itertools};
-use once_cell::sync::OnceCell;
-use rocksdb::Options;
-use serde::{Deserialize, Serialize};
-use serde_with::serde_as;
-use tokio::sync::Notify;
-use tokio_retry::strategy::{jitter, ExponentialBackoff};
-use tracing::{debug, info, trace};
-use typed_store::rocks::DBBatch;
-use typed_store::traits::Map;
-
 use sui_storage::{
     lock_service::ObjectLockStatus,
     mutex_table::{LockGuard, MutexTable},
@@ -38,13 +28,6 @@ use sui_types::message_envelope::VerifiedEnvelope;
 use sui_types::object::Owner;
 use sui_types::storage::{ChildObjectResolver, SingleTxContext, WriteKind};
 use sui_types::{base_types::SequenceNumber, storage::ParentSync};
-
-use crate::authority::authority_store_tables::ExecutionIndicesWithHash;
-
-use super::{
-    authority_store_tables::{AuthorityEpochTables, AuthorityPerpetualTables},
-    *,
-};
 use sui_types::{batch::TxSequenceNumber, object::PACKAGE_VERSION};
 use tokio_retry::strategy::{jitter, ExponentialBackoff};
 use tracing::{debug, info, trace};
