@@ -22,6 +22,7 @@ use crypto::{traits::KeyPair as _, NetworkKeyPair, NetworkPublicKey, PublicKey};
 use futures::StreamExt;
 use multiaddr::{Multiaddr, Protocol};
 use mysten_metrics::spawn_monitored_task;
+use network::failpoints::FailpointsMakeCallbackHandler;
 use network::metrics::MetricsMakeCallbackHandler;
 use network::P2pNetwork;
 use std::collections::HashMap;
@@ -174,6 +175,7 @@ impl Worker {
             .layer(CallbackLayer::new(MetricsMakeCallbackHandler::new(
                 inbound_network_metrics,
             )))
+            .layer(CallbackLayer::new(FailpointsMakeCallbackHandler::new()))
             .service(routes);
 
         let outbound_layer = ServiceBuilder::new()
@@ -184,6 +186,7 @@ impl Worker {
             .layer(CallbackLayer::new(MetricsMakeCallbackHandler::new(
                 outbound_network_metrics,
             )))
+            .layer(CallbackLayer::new(FailpointsMakeCallbackHandler::new()))
             .into_inner();
 
         let anemo_config = {
