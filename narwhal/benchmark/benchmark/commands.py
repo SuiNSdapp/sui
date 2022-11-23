@@ -22,7 +22,7 @@ class CommandMaker:
             params = ["--profile", "bench-profiling",
                       "--features", "benchmark dhat-heap"]
         else:
-            params = ["--release", "--features", "benchmark"]
+            params = ["--release", "--features", "benchmark fail/failpoints"]
         return ["cargo", "build", "--quiet"] + params
 
     @staticmethod
@@ -117,5 +117,6 @@ class CommandMaker:
     @staticmethod
     def alias_binaries(origin):
         assert isinstance(origin, str)
-        node, client = join(origin, 'narwhal-node'), join(origin, 'narwhal-benchmark-client')
+        node, client = join(
+            origin, 'narwhal-node'), join(origin, 'narwhal-benchmark-client')
         return f'rm narwhal-node ; rm narwhal-benchmark-client ; ln -s {node} . ; ln -s {client} .'

@@ -380,6 +380,13 @@ impl WorkerRpc for P2pNetwork {
         const BATCH_REQUEST_TIMEOUT: Duration = Duration::from_secs(10);
 
         let peer_id = PeerId(peer.0.to_bytes());
+
+        fail::fail_point!("request-batch", |_| {
+            Err(format_err!(
+                "Injected error in request batch from peer {peer_id}"
+            ))
+        });
+
         let peer = self
             .network
             .peer(peer_id)

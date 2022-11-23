@@ -5260,6 +5260,7 @@ dependencies = [
  "dashmap",
  "derive_builder",
  "dhat",
+ "fail 0.5.1",
  "fastcrypto",
  "futures",
  "indexmap",
