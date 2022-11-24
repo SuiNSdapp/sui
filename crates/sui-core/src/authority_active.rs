@@ -58,6 +58,7 @@ use gossip::{gossip_process, GossipMetrics};
 
 use crate::authority_client::NetworkAuthorityClientMetrics;
 
+pub mod checkpoint_executor;
 pub mod execution_driver;
 
 use self::execution_driver::{execution_process, ExecutionDriverMetrics};
