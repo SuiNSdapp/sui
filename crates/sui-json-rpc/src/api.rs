@@ -1,7 +1,6 @@
 // Copyright (c) Mysten Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
-use anyhow::anyhow;
 use std::collections::BTreeMap;
 
 use jsonrpsee::core::RpcResult;
@@ -50,6 +49,10 @@ pub trait RpcReadApi {
         &self,
         /// the ID of the parent object
         parent_object_id: ObjectID,
+        /// Optional paging cursor
+        cursor: Option<ObjectID>,
+        /// Maximum item returned per page
+        limit: Option<usize>,
     ) -> RpcResult<DynamicFieldPage>;
 
     /// Return the total number of transactions known to the server.
@@ -493,14 +496,11 @@ pub trait TransactionExecutionApi {
     ) -> RpcResult<SuiExecuteTransactionResponse>;
 }
 
-pub fn cap_page_limit(limit: Option<usize>) -> Result<usize, anyhow::Error> {
-    let limit = limit.unwrap_or(QUERY_MAX_RESULT_LIMIT);
-    if limit == 0 {
-        Err(anyhow!("Page result limit must be larger then 0."))?;
-    }
-    Ok(if limit > QUERY_MAX_RESULT_LIMIT {
+pub fn cap_page_limit(limit: Option<usize>) -> usize {
+    let limit = limit.unwrap_or_default();
+    if limit > QUERY_MAX_RESULT_LIMIT || limit == 0 {
         QUERY_MAX_RESULT_LIMIT
     } else {
         limit
-    })
+    }
 }

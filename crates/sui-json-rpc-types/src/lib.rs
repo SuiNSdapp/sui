@@ -66,7 +66,7 @@ pub type SuiMoveTypeParameterIndex = u16;
 pub type TransactionsPage = Page<TransactionDigest, TransactionDigest>;
 
 pub type EventPage = Page<SuiEventEnvelope, EventID>;
-pub type DynamicFieldPage = Page<DynamicFieldInfo, String>;
+pub type DynamicFieldPage = Page<DynamicFieldInfo, ObjectID>;
 
 #[derive(Serialize, Deserialize, Debug, JsonSchema)]
 pub enum SuiMoveAbility {
