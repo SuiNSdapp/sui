@@ -8644,6 +8644,7 @@ version = "0.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
+ "bcs",
  "fastcrypto",
  "futures",
  "hyper",
@@ -8796,6 +8797,7 @@ name = "sui-open-rpc"
 version = "0.0.0"
 dependencies = [
  "anyhow",
+ "bcs",
  "clap 3.2.22",
  "fastcrypto",
  "move-core-types",

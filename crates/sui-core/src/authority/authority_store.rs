@@ -1600,7 +1600,8 @@ impl EffectsStore for Arc<AuthorityStore> {
 fn certificate_input_object_keys(certificate: &VerifiedCertificate) -> SuiResult<Vec<ObjectKey>> {
     Ok(certificate
         .data()
-        .data
+        .intent_message
+        .value
         .input_objects()?
         .into_iter()
         .filter_map(|object| {
