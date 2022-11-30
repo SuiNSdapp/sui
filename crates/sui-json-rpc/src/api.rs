@@ -107,7 +107,7 @@ pub trait RpcReadApi {
         &self,
         /// the ID of the queried parent object
         parent_object_id: ObjectID,
-        /// the Name of the dynamic field
+        /// The Name of the dynamic field
         name: String,
     ) -> RpcResult<GetObjectDataResponse>;
 }
