@@ -19,6 +19,7 @@ use sui_open_rpc::{Module, Project};
 
 pub mod api;
 pub mod bcs_api;
+pub mod coin_api;
 pub mod event_api;
 mod metrics;
 pub mod read_api;
