@@ -9,10 +9,10 @@ use jsonrpsee_proc_macros::rpc;
 use fastcrypto::encoding::Base64;
 use sui_json::SuiJsonValue;
 use sui_json_rpc_types::{
-    EventPage, GetObjectDataResponse, GetPastObjectDataResponse, GetRawObjectDataResponse,
-    MoveFunctionArgType, RPCTransactionRequestParams, SuiCoinMetadata, SuiEventEnvelope,
-    SuiEventFilter, SuiExecuteTransactionResponse, SuiMoveNormalizedFunction,
-    SuiMoveNormalizedModule, SuiMoveNormalizedStruct, SuiObjectInfo,
+    DynamicFieldPage, EventPage, GetObjectDataResponse, GetPastObjectDataResponse,
+    GetRawObjectDataResponse, MoveFunctionArgType, RPCTransactionRequestParams, SuiCoinMetadata,
+    SuiEventEnvelope, SuiEventFilter, SuiExecuteTransactionResponse,
+    SuiMoveNormalizedFunction, SuiMoveNormalizedModule, SuiMoveNormalizedStruct, SuiObjectInfo,
     SuiTransactionAuthSignersResponse, SuiTransactionEffects, SuiTransactionFilter,
     SuiTransactionResponse, SuiTypeTag, TransactionBytes, TransactionsPage,
 };
@@ -105,7 +105,7 @@ pub trait RpcReadApi {
     #[method(name = "getDynamicFieldObject")]
     async fn get_dynamic_field_object(
         &self,
-        /// the ID of the queried parent object
+        /// The ID of the queried parent object
         parent_object_id: ObjectID,
         /// The Name of the dynamic field
         name: String,
