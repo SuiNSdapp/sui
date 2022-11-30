@@ -55,7 +55,7 @@ pub trait RpcReadApi {
     #[method(name = "getDynamicFields")]
     async fn get_dynamic_fields(
         &self,
-        /// the ID of the parent object
+        /// The ID of the parent object
         parent_object_id: ObjectID,
         /// Optional paging cursor
         cursor: Option<ObjectID>,
