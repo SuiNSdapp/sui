@@ -5205,7 +5205,6 @@ dependencies = [
  "clap 2.34.0",
  "dhat",
  "eyre",
- "fail 0.5.1",
  "fastcrypto",
  "futures",
  "itertools",
