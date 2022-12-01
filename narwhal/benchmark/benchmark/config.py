@@ -235,7 +235,8 @@ class LocalCommittee(Committee):
         assert all(isinstance(x, str) for x in names)
         assert isinstance(port, int)
         assert len(names) == len(network_names)
-        addresses = OrderedDict((name, (network_name, ['127.0.0.1'])) for name, network_name in zip(names, network_names))
+        addresses = OrderedDict((name, (network_name, [
+                                '127.0.0.1'])) for name, network_name in zip(names, network_names))
         super().__init__(addresses, port)
 
 
@@ -295,6 +296,11 @@ class BenchParameters:
                 self.mem_profile = bool(json['mem_profiling'])
             else:
                 self.mem_profile = False
+
+            if 'failpoints' in json:
+                self.failpoints = bool(json['failpoints'])
+            else:
+                self.failpoints = False
 
             self.runs = int(json['runs']) if 'runs' in json else 1
         except KeyError as e:

@@ -5378,6 +5378,7 @@ dependencies = [
  "criterion",
  "dashmap",
  "derive_builder",
+ "fail 0.5.1",
  "fastcrypto",
  "futures",
  "indexmap",
