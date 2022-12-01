@@ -188,7 +188,8 @@ endian-type = { version = "0.1", default-features = false }
 ethnum = { version = "1", default-features = false }
 event-listener = { version = "2", default-features = false }
 eyre = { version = "0.6", features = ["auto-install", "track-caller"] }
-fail = { version = "0.4", default-features = false }
+fail-9fbad63c4bcf4a8f = { package = "fail", version = "0.4", default-features = false }
+fail-d8f496e17d97b5cb = { package = "fail", version = "0.5", default-features = false }
 fastcrypto = { git = "https://github.com/MystenLabs/fastcrypto", rev = "3ac9fa490f2d7eecd133c87a7c616328a217b66a", features = ["copy_key", "secure"] }
 fastcrypto-zkp = { git = "https://github.com/MystenLabs/fastcrypto", rev = "3ac9fa490f2d7eecd133c87a7c616328a217b66a", default-features = false }
 fastrand = { version = "1", default-features = false }
@@ -848,7 +849,8 @@ enum_dispatch = { version = "0.3", default-features = false }
 ethnum = { version = "1", default-features = false }
 event-listener = { version = "2", default-features = false }
 eyre = { version = "0.6", features = ["auto-install", "track-caller"] }
-fail = { version = "0.4", default-features = false }
+fail-9fbad63c4bcf4a8f = { package = "fail", version = "0.4", default-features = false }
+fail-d8f496e17d97b5cb = { package = "fail", version = "0.5", default-features = false }
 fastcrypto = { git = "https://github.com/MystenLabs/fastcrypto", rev = "3ac9fa490f2d7eecd133c87a7c616328a217b66a", features = ["copy_key", "secure"] }
 fastcrypto-derive = { git = "https://github.com/MystenLabs/fastcrypto", rev = "3ac9fa490f2d7eecd133c87a7c616328a217b66a", default-features = false }
 fastcrypto-zkp = { git = "https://github.com/MystenLabs/fastcrypto", rev = "3ac9fa490f2d7eecd133c87a7c616328a217b66a", default-features = false }
