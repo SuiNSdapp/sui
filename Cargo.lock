@@ -8644,6 +8644,7 @@ version = "0.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
+ "bcs",
  "fastcrypto",
  "futures",
  "hyper",
@@ -8670,6 +8671,7 @@ dependencies = [
  "sui-types",
  "tap",
  "test-utils",
+ "thiserror",
  "tokio",
  "tower",
  "tower-http",
