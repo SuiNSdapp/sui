@@ -225,7 +225,7 @@ pub async fn increment_counter(
         "counter",
         "increment",
         package_ref,
-        vec![SuiJsonValue::new(json!(counter_id.to_hex_literal())).unwrap()],
+        vec![SuiJsonValue::new(json!(counter_id.to_string())).unwrap()],
         sender,
         gas_object,
     )
