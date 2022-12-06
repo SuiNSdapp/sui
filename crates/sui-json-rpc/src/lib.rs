@@ -14,8 +14,9 @@ use tower::util::option_layer;
 use tower_http::cors::{AllowOrigin, CorsLayer};
 use tracing::info;
 
-use crate::metrics::MetricsLayer;
 use sui_open_rpc::{Module, Project};
+
+use crate::metrics::MetricsLayer;
 
 pub mod api;
 pub mod bcs_api;
@@ -24,12 +25,14 @@ pub mod error;
 pub mod event_api;
 mod metrics;
 pub mod read_api;
-#[cfg(test)]
-#[path = "unit_tests/rpc_server_tests.rs"]
-mod rpc_server_test;
+
 pub mod streaming_api;
 pub mod transaction_builder_api;
 pub mod transaction_execution_api;
+
+#[cfg(test)]
+#[path = "unit_tests/rpc_server_tests.rs"]
+mod rpc_server_test;
 
 pub struct JsonRpcServerBuilder {
     module: RpcModule<()>,
