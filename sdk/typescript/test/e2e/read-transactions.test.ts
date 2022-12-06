@@ -27,6 +27,21 @@ describe('Transaction Reading API', () => {
     expect(txn.certificate.transactionDigest).toEqual(digest);
   });
 
+  it('Get Transaction Auth Signers', async () => {
+    const resp = await toolbox.provider.getTransactions(
+      'All',
+      null,
+      1,
+    );
+    const digest = resp.data[0];
+    const version = await toolbox.provider.getRpcApiVersion();
+    if (version?.major === 0 && version?.minor > 17) {
+      // This endpoint is only available in 0.18 and above
+      const res = await toolbox.provider.getTransactionAuthSigners(digest);
+      expect(res.signers.length).toEqual(3);
+    }
+  });
+
   it('Get Transactions', async () => {
     const resp = await toolbox.provider.getTransactionsForAddress(
       toolbox.address(),
