@@ -309,7 +309,6 @@ async fn test_get_metadata() -> Result<(), anyhow::Error> {
         .await?;
 
     let SuiExecuteTransactionResponse::EffectsCert {effects,..} = tx_response else {
-        assert!(false);
         panic!()
     };
 
@@ -373,7 +372,6 @@ async fn test_get_total_supply() -> Result<(), anyhow::Error> {
         .await?;
 
     let SuiExecuteTransactionResponse::EffectsCert {effects,..} = tx_response else {
-        assert!(false);
         panic!()
     };
 
@@ -455,7 +453,6 @@ async fn test_get_total_supply() -> Result<(), anyhow::Error> {
         .await?;
 
     let SuiExecuteTransactionResponse::EffectsCert {effects,..} = tx_response else {
-        assert!(false);
         panic!()
     };
 
