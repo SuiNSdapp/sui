@@ -1,7 +1,6 @@
 // Copyright (c) Mysten Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
-use std::collections::BTreeMap;
 use std::iter;
 use std::path::Path;
 use std::sync::Arc;
@@ -18,12 +17,7 @@ use serde_with::serde_as;
 use tokio_retry::strategy::{jitter, ExponentialBackoff};
 use tracing::{debug, info, trace};
 
-use narwhal_executor::ExecutionIndices;
 use std::collections::{BTreeMap, BTreeSet};
-use std::iter;
-use std::path::Path;
-use std::sync::Arc;
-use std::{fmt::Debug, path::PathBuf};
 use sui_storage::{
     lock_service::ObjectLockStatus,
     mutex_table::{LockGuard, MutexTable},

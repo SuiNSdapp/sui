@@ -11,8 +11,8 @@ use sui_json::SuiJsonValue;
 use sui_json_rpc_types::{
     DynamicFieldPage, EventPage, GetObjectDataResponse, GetPastObjectDataResponse,
     GetRawObjectDataResponse, MoveFunctionArgType, RPCTransactionRequestParams, SuiCoinMetadata,
-    SuiEventEnvelope, SuiEventFilter, SuiExecuteTransactionResponse,
-    SuiMoveNormalizedFunction, SuiMoveNormalizedModule, SuiMoveNormalizedStruct, SuiObjectInfo,
+    SuiEventEnvelope, SuiEventFilter, SuiExecuteTransactionResponse, SuiMoveNormalizedFunction,
+    SuiMoveNormalizedModule, SuiMoveNormalizedStruct, SuiObjectInfo,
     SuiTransactionAuthSignersResponse, SuiTransactionEffects, SuiTransactionFilter,
     SuiTransactionResponse, SuiTypeTag, TransactionBytes, TransactionsPage,
 };
