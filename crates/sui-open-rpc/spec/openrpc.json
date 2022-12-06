@@ -1245,6 +1245,32 @@
       ]
     },
     {
+      "name": "sui_getTotalSupply",
+      "tags": [
+        {
+          "name": "Coin Query API"
+        }
+      ],
+      "description": "Return total supply for a coin",
+      "params": [
+        {
+          "name": "coin_type",
+          "description": "fully qualified type names for the coin (e.g., 0x168da5bf1f48dafc111b0a488fa454aca95e0b5e::usdc::USDC)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "result": {
+        "name": "Supply",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/Supply"
+        }
+      }
+    },
+    {
       "name": "sui_getTotalTransactionNumber",
       "tags": [
         {
@@ -4775,6 +4801,19 @@
               "integer",
               "null"
             ],
+            "format": "uint64",
+            "minimum": 0.0
+          }
+        }
+      },
+      "Supply": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "integer",
             "format": "uint64",
             "minimum": 0.0
           }
